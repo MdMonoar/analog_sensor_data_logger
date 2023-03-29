@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 6.6, "left": -170, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 10.2, "left": 191.4, "attrs": {} },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": 108.2,
+      "left": -288.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ds1307",
+      "id": "rtc1",
+      "top": 10.6,
+      "left": -148.9,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-microsd-card",
+      "id": "sd1",
+      "top": -129.6,
+      "left": 273.27,
+      "rotate": 90,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "uno:5V", "bb1:bp.25", "red", [ "v51.94", "h-168.64", "v-60.74" ] ],
+    [ "uno:GND.2", "bb1:bn.25", "black", [ "v60.57", "h-186.96", "v-59.37" ] ],
+    [ "bb1:bp.1", "bb1:2b.j", "red", [ "v0" ] ],
+    [ "bb1:bn.2", "bb1:3b.j", "black", [ "v0" ] ],
+    [ "ntc1:GND", "bb1:3b.g", "black", [ "h0" ] ],
+    [ "ntc1:VCC", "bb1:2b.h", "red", [ "h0" ] ],
+    [ "ntc1:OUT", "bb1:1b.i", "green", [ "h0" ] ],
+    [ "rtc1:GND", "bb1:3b.g", "black", [ "v0" ] ],
+    [ "bb1:bp.3", "rtc1:5V", "red", [ "v0" ] ],
+    [ "uno:A3", "bb1:1b.j", "green", [ "v135.18", "h-576.55" ] ],
+    [ "uno:A5", "rtc1:SCL", "green", [ "v117.16", "h-544.8" ] ],
+    [ "rtc1:SDA", "uno:A4", "green", [ "v208.16", "h542.43" ] ],
+    [ "sd1:SCK", "uno:13", "green", [ "v0" ] ],
+    [ "sd1:DI", "uno:11", "green", [ "v32.58", "h34.64" ] ],
+    [ "sd1:GND", "uno:GND.1", "black", [ "v16.76", "h-20.17" ] ],
+    [ "sd1:DO", "uno:12", "green", [ "v25.5", "h-10.61" ] ],
+    [ "sd1:CS", "uno:10", "green", [ "v37.58", "h57.01" ] ],
+    [ "sd1:VCC", "bb1:bp.25", "red", [ "v10.72", "h-120.68", "v218.19" ] ]
+  ],
+  "dependencies": {}
+}
